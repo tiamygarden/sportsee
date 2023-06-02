@@ -1,0 +1,78 @@
+.performance__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media screen {
+        @media (min-width: 1024px) {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 1476px) {
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+.session {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+
+    @media screen {
+        @media (min-width: 1024px) {
+            width: 30%;
+            height: auto;
+        }
+
+        @media (min-width: 1476px) {
+            width: 30%;
+            height: auto;
+        }
+    }
+}
+
+.polar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+
+    @media screen {
+        @media (min-width: 1024px) {
+            width: 30%;
+            height: auto;
+        }
+
+        @media (min-width: 1476px) {
+            width: 30%;
+            height: auto;
+        }
+    }
+}
+
+.score {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+
+    @media screen {
+        @media (min-width: 1024px) {
+            width: 30%;
+            height: auto;
+        }
+
+        @media (min-width: 1476px) {
+            width: 30%;
+            height: auto;
+        }
+    }
+}
+
+.custom-tooltip-sessions {
+    width: 50px;
+    height: 25px;
+    color: #000000;
+    background-color: white;
+    text-align: center;
+
+    &.session-label {
+        font-size: 5px;
+        text-align: center;
+    }
+}

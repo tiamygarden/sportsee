@@ -1,0 +1,29 @@
+.activity {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
+
+    & span {
+        color: #74798c !important;
+        padding-right: 10px;
+    }
+
+    @media screen {
+        @media (min-width: 1024px) {
+            max-width: 100%;
+        }
+    }
+
+    .custom-tooltip {
+        width: 39px;
+        height: 63px;
+        color: white;
+        background-color: red;
+        text-align: center;
+
+        & p {
+            font-size: 7px;
+            text-align: center;
+        }
+    }
+}
