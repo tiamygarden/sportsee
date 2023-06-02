@@ -4,6 +4,7 @@ import Home from "../pages/Home"
 import Profil from "../pages/Profil"
 import Reglage from "../pages/Reglage"
 import Communaute from "../pages/Communaute"
+import Error404 from "../pages/Error404"
 import Logo from "./Logo"
 
 const Navbar = () => {
@@ -24,6 +25,7 @@ const Navbar = () => {
                     <NavLink to="/communaute" element={<Communaute />}>
                         <li>Communauté</li>
                     </NavLink>
+                    <NavLink to="*" element={<Error404 />}></NavLink>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { getUserData } from "../services/api"
 import axios from "axios"
 import {
     BarChart,
@@ -55,14 +54,33 @@ const Barchart = () => {
                     borderRadius: "5px",
                 }}
             >
-                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <CartesianAxis axisLine={false} />
-                <XAxis dataKey="day" />
-                <YAxis
-                    xAxisId={1}
-                    axisLine={false}
+                <CartesianGrid vertical={false} strokeDasharray="2 3" />
+                <CartesianAxis axisLine={true} />
+                <XAxis
+                    dataKey="day"
+                    axisLine={{ stroke: "#DEDEDE" }}
                     tickLine={false}
-                    orientation={"right"}
+                    height={48}
+                    tickFormatter={(value) => new Date(value).getDate()}
+                    tickMargin={15}
+                />
+                <YAxis
+                    yAxisId="kilogram"
+                    dataKey="kilogram"
+                    type="number"
+                    domain={["dataMin-2", "dataMax+1"]}
+                    tickCount="3"
+                    axisLine={false}
+                    orientation="right"
+                    tickLine={false}
+                    tick={{ fontSize: 14 }}
+                    dx={15}
+                />
+                <YAxis
+                    yAxisId="calories"
+                    dataKey="calories"
+                    type="number"
+                    hide={true}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend
@@ -78,7 +96,6 @@ const Barchart = () => {
                         lineHeight: "24px",
                     }}
                 />
-
                 <text
                     x="3%"
                     y="17px"
@@ -90,20 +107,18 @@ const Barchart = () => {
                     Activité quotidienne
                 </text>
                 <Bar
+                    yAxisId="kilogram"
                     dataKey="kilogram"
-                    name="Poids (kg)"
-                    as={"name"}
-                    fill="#020203"
-                    radius={[20, 20, 0, 0]}
-                    maxBarSize={10}
+                    fill="#282D30"
+                    barSize={7}
+                    radius={[50, 50, 0, 0]}
                 />
                 <Bar
+                    yAxisId="calories"
                     dataKey="calories"
-                    name={"Calories brûlées (kCal)"}
-                    type={"monotone"}
-                    fill="red"
-                    radius={[20, 20, 0, 0]}
-                    maxBarSize={10}
+                    fill="#E60000"
+                    barSize={7}
+                    radius={[50, 50, 0, 0]}
                 />
             </BarChart>
         </ResponsiveContainer>
