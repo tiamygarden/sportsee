@@ -1,11 +1,11 @@
 import React from "react"
-import Navbar from "../components/Navbar"
+import NavBar from "../components/NavBar"
 import Sidebar from "../components/Sidebar"
 
 const Reglage = () => {
     return (
         <>
-            <Navbar />
+            <NavBar />
             <Sidebar />
 
             <div className="main__container">

@@ -1,9 +1,9 @@
 import React from "react"
-import Activities from "./Activities"
 import User from "./User"
-import Session from "./Session"
-import PolargridComponent from "./PolargridComponent"
-import Score from "./Score"
+import LinearChartComponent from "./LinearChartComponent"
+import BarChartComponent from "./BarChartComponent"
+import RadarChartComponent from "./RadarChartComponent"
+import PieChartComponent from "./PieChartComponent"
 import NutriCards from "./NutriCards"
 
 const Main = () => {
@@ -12,16 +12,16 @@ const Main = () => {
             <div className="main__container">
                 <User />
                 <div className="main__container-left">
-                    <Activities />
+                    <BarChartComponent />
                     <div className={"performance__container"}>
                         <div className={"session"}>
-                            <Session />
+                            <LinearChartComponent />
                         </div>
                         <div className={"polar"}>
-                            <PolargridComponent />
+                            <RadarChartComponent />
                         </div>
                         <div className={"score"}>
-                            <Score />
+                            <PieChartComponent />
                         </div>
                     </div>
                 </div>

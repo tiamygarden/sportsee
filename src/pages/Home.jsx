@@ -1,12 +1,12 @@
 import React from "react"
-import Navbar from "../components/Navbar"
+import NavBar from "../components/NavBar"
 import Sidebar from "../components/Sidebar"
 // import Main from "../components/Main"
 
 const Home = () => {
     return (
         <>
-            <Navbar />
+            <NavBar />
             <Sidebar />
             <div className="main__container">
                 <h1 className="title is-1">This is the Home Page</h1>

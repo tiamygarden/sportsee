@@ -1,32 +1,54 @@
 import React, { useEffect, useState } from "react"
-import { fetchData } from "../services/api"
-import axios from "axios"
+import { USER_MAIN_DATA } from "../data/dataMocked"
+// import { getUser } from "../services/api"
 
 function User() {
-    const [data, setData] = useState({})
-
-    useEffect(() => {
-        axios.get("http://localhost:4200/user/12").then((res) => {
-            setData(res.data.data)
-        })
-    }, [])
+    //A commenter pour utiliser les datas Mockées------------------------------
+    // const [data, setData] = useState({})
     // useEffect(() => {
-    //     fetchData(12, "main-data") // Appel à fetchData pour récupérer les données principales de l'utilisateur
-    //         .then((data) => setData(data))
-    //         .catch((error) => console.error("Error fetching data:", error))
+    //     const fetchData = async () => {
+    //         try {
+    //             const userDatas = await getUser(12)
+    //             setData(userDatas.data)
+    //         } catch (error) {
+    //             console.error(
+    //                 "Erreur lors de la récupération des données utilisateur",
+    //                 error
+    //             )
+    //         }
+    //     }
+    //     fetchData()
     // }, [])
+    // ---------------------------------------------------------fin à commenter
 
     return (
+        // datas Mockées------------------------------------------------------
         <div className="main__container-user">
             <p>
                 Bonjour{" "}
                 <span style={{ color: "red", fontSize: "48px" }}>
-                    {data.userInfos ? data.userInfos.firstName : "Chargement"}
+                    {USER_MAIN_DATA
+                        ? USER_MAIN_DATA[0].userInfos.firstName
+                        : "Chargement"}
                 </span>{" "}
                 !
             </p>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
+        // ---------------------------------------------------fin datas Mockées
+
+        // datas récupérées via l'API------------------------------------------
+        // <div className="main__container-user">
+        //     <p>
+        //         Bonjour{" "}
+        //         <span style={{ color: "red", fontSize: "48px" }}>
+        //             {data.userInfos ? data.userInfos.firstName : "Chargement"}
+        //         </span>{" "}
+        //         !
+        //     </p>
+        //     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        // </div>
+        // ---------------------------------------fin datas récupérées via l'API
     )
 }
 

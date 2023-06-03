@@ -11,7 +11,7 @@ import {
     ResponsiveContainer,
 } from "recharts"
 
-function LinearChart() {
+function LinearChartComponent() {
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             const session = payload[0].payload
@@ -82,4 +82,4 @@ function LinearChart() {
     )
 }
 
-export default LinearChart
+export default LinearChartComponent

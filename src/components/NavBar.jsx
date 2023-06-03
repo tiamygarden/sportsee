@@ -7,7 +7,7 @@ import Communaute from "../pages/Communaute"
 import Error404 from "../pages/Error404"
 import Logo from "./Logo"
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <div className="header">
             <Logo />
@@ -32,4 +32,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavBar

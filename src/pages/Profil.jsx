@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from "../components/Navbar"
+import NavBar from "../components/NavBar"
 import Sidebar from "../components/Sidebar"
 import Main from "../components/Main"
 import { useParams } from "react-router-dom"
@@ -9,7 +9,7 @@ const Profil = () => {
 
     return (
         <>
-            <Navbar />
+            <NavBar />
             <Sidebar />
             <Main />
             <p className={"main__container-btm"}>profile de {name}</p>
