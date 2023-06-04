@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
+import React from "react"
+//a décommenter pour utiliser l'API
+import { useEffect, useState } from "react"
+import { getUserAverageSessions } from "../services/api"
+//-------------------------------fin a décommenter pour utiliser l'API
+//a commenter pour utiliser l'API
+// import { USER_AVERAGE_SESSIONS } from "../data/dataMocked"
+//-------------------------------fin a commenter pour utiliser l'API
 import {
     LineChart,
     Line,
@@ -23,14 +29,18 @@ function LinearChartComponent() {
         }
         return null
     }
-
+    //a décommenter pour utiliser l'API
     const [data, setData] = useState({})
-    useEffect(() => {
-        axios
-            .get("http://localhost:4200/user/12/average-sessions")
-            .then((res) => setData(res.data.data))
-    }, [])
 
+    useEffect(() => {
+        getUserAverageSessions(12).then((res) => setData(res.data.data))
+    }, [])
+    //-------------------------------fin a décommenter pour utiliser l'API
+    //a commenter pour utiliser l'API
+    // const sessionsData = USER_AVERAGE_SESSIONS.find(
+    //     (user) => user.userId === 12
+    // ).sessions
+    //-------------------------------fin a commenter pour utiliser l'API
     return (
         <ResponsiveContainer width="100%" aspect={1}>
             <LineChart
@@ -40,7 +50,12 @@ function LinearChartComponent() {
                     backgroundColor: "#ff0000",
                     borderRadius: "5px",
                 }}
+                //datas mockées----------------------
+                // data={sessionsData}
+                //----------------------------------fin datas mockées
+                //data récupérées via l'API----------------------
                 data={data.sessions}
+                //-------------------------------fin datas récupérées via l'API
                 fontSize={10}
                 margin={{
                     top: 15,

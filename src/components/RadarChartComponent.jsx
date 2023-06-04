@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
+import React from "react"
+//a décommenter pour utiliser l'API------------------------------------
+// import { useEffect, useState } from "react"
+// import { getUserPerformance } from "../services/api"
+//------------------------------------fin a décommenter pour utiliser l'API
+//a commenter pour utiliser l'API
+import { USER_PERFORMANCE } from "../data/dataMocked"
+//-------------------------------fin a commenter pour utiliser l'API
+
 import {
     RadarChart,
     PolarGrid,
@@ -18,33 +25,43 @@ const RadarChartComponent = () => {
         5: "speed",
         6: "intensity",
     }
-    const [data, setData] = useState([])
+    //datas mockées----------------------
+    const performanceData = USER_PERFORMANCE.find(
+        (user) => user.userId === 12
+    ).data.map((item) => ({
+        kind: dataKeys[item.kind],
+        value: item.value,
+    }))
+    //------------------------------------fin datas mockées
 
-    useEffect(() => {
-        axios
-            .get("http://localhost:4200/user/12/performance")
-            .then((res) => {
-                const responseData = res.data.data
-                if (
-                    responseData &&
-                    responseData.userId === 12 &&
-                    responseData.kind &&
-                    responseData.data &&
-                    Array.isArray(responseData.data)
-                ) {
-                    const updatedData = responseData.data.map((item) => ({
-                        kind: dataKeys[item.kind],
-                        value: item.value,
-                    }))
-                    setData(updatedData)
-                } else {
-                    console.error("Invalid data format:", responseData)
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching data:", error)
-            })
-    }, [])
+    //a décommenter pour utiliser l'API
+    // const [data, setData] = useState([])
+    //
+    // useEffect(() => {
+    //     getUserPerformance(12)
+    //         .then((res) => {
+    //             const responseData = res.data.data
+    //             if (
+    //                 responseData &&
+    //                 responseData.userId === 12 &&
+    //                 responseData.kind &&
+    //                 responseData.data &&
+    //                 Array.isArray(responseData.data)
+    //             ) {
+    //                 const updatedData = responseData.data.map((item) => ({
+    //                     kind: dataKeys[item.kind],
+    //                     value: item.value,
+    //                 }))
+    //                 setData(updatedData)
+    //             } else {
+    //                 console.error("Invalid data format:", responseData)
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error fetching data:", error)
+    //         })
+    // }, [])
+    //-------------------------------fin a décommenter pour utiliser l'API
 
     return (
         <ResponsiveContainer width="100%" aspect={1}>
@@ -56,7 +73,12 @@ const RadarChartComponent = () => {
                     backgroundColor: "#282D30",
                     borderRadius: "5px",
                 }}
-                data={data}
+                //datas mockées-----------------------------------------------
+                data={performanceData}
+                //--------------------------------------------fin datas mockées
+                //datas api---------------------------------------------------
+                // data={data}
+                //------------------------------------------------fin datas api
                 outerRadius={"95%"}
             >
                 <PolarGrid radialLines={false} />

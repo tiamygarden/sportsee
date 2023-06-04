@@ -31,10 +31,20 @@ export const getUserActivity = (userId) => {
     return axios.get(`${API_BASE_URL}/user/${userId}/activity`)
 }
 
+export const getUserAverageSessions = (userId) => {
+    return axios.get(`${API_BASE_URL}/user/${userId}/average-sessions`)
+}
+
+export const getUserPerformance = (userId) => {
+    return axios.get(`${API_BASE_URL}/user/${userId}/performance`)
+}
+
 const api = {
     getUser,
     getNutritionData,
     getUserActivity,
+    getUserAverageSessions,
+    getUserPerformance,
 }
 
 export default api
