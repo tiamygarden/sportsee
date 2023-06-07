@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react"
-// import { USER_ACTIVITY } from "../data/dataMocked"
-// import { formatUserActivity } from "../model/userActivityModel"
-import api from "../services/api"
+import React from "react"
 import {
     BarChart,
     Bar,
@@ -27,32 +24,14 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
-const BarChartComponent = () => {
-    //A commenter pour utiliser les datas Mockées------------------------------
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        api.getUserActivity(12).then((res) => {
-            setData(res.data.data.sessions)
-        })
-    }, [])
-    // ---------------------------------------------------------fin à commenter
-
-    //A décommenter pour utiliser les datas Mockées-----------------------------
-    // const formattedData = formatUserActivity(USER_ACTIVITY)
-    // ---------------------------------------------------------fin à décommenter
+const BarChartComponent = ({ activities }) => {
     return (
         <div className={"activity"}>
             <ResponsiveContainer width="100%" aspect={3}>
                 <BarChart
                     width="100%"
                     height="100%"
-                    //A commenter pour utiliser les datas Mockées---------------
-                    data={data}
-                    // ------------------------------------------fin à commenter
-                    //A décommenter pour utiliser les datas Mockées-------------
-                    // data={formattedData[0].sessions}
-                    // ----------------------------------------fin à décommenter
+                    data={activities}
                     fontSize={10}
                     barSize={10}
                     barGap={10}

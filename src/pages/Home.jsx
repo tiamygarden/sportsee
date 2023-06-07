@@ -1,7 +1,7 @@
 import React from "react"
 import NavBar from "../components/NavBar"
 import Sidebar from "../components/Sidebar"
-// import Main from "../components/Main"
+// import Profile from "../components/Profile"
 
 const Home = () => {
     return (

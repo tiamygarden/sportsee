@@ -11,7 +11,7 @@ const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/profil" element={<Profil />} />
+                <Route path="/profil/user/:userId" element={<Profil />} />
                 <Route path="/reglage" element={<Reglage />} />
                 <Route path="/communaute" element={<Communaute />} />
                 <Route path="*" element={<Error404 />} />

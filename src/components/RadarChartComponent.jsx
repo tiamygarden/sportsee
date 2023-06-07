@@ -1,12 +1,3 @@
-import React from "react"
-//a décommenter pour utiliser l'API------------------------------------
-// import { useEffect, useState } from "react"
-// import { getUserPerformance } from "../services/api"
-//------------------------------------fin a décommenter pour utiliser l'API
-//a commenter pour utiliser l'API
-import { USER_PERFORMANCE } from "../data/dataMocked"
-//-------------------------------fin a commenter pour utiliser l'API
-
 import {
     RadarChart,
     PolarGrid,
@@ -16,53 +7,7 @@ import {
     ResponsiveContainer,
 } from "recharts"
 
-const RadarChartComponent = () => {
-    const dataKeys = {
-        1: "cardio",
-        2: "energy",
-        3: "endurance",
-        4: "strength",
-        5: "speed",
-        6: "intensity",
-    }
-    //datas mockées----------------------
-    const performanceData = USER_PERFORMANCE.find(
-        (user) => user.userId === 12
-    ).data.map((item) => ({
-        kind: dataKeys[item.kind],
-        value: item.value,
-    }))
-    //------------------------------------fin datas mockées
-
-    //a décommenter pour utiliser l'API
-    // const [data, setData] = useState([])
-    //
-    // useEffect(() => {
-    //     getUserPerformance(12)
-    //         .then((res) => {
-    //             const responseData = res.data.data
-    //             if (
-    //                 responseData &&
-    //                 responseData.userId === 12 &&
-    //                 responseData.kind &&
-    //                 responseData.data &&
-    //                 Array.isArray(responseData.data)
-    //             ) {
-    //                 const updatedData = responseData.data.map((item) => ({
-    //                     kind: dataKeys[item.kind],
-    //                     value: item.value,
-    //                 }))
-    //                 setData(updatedData)
-    //             } else {
-    //                 console.error("Invalid data format:", responseData)
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error fetching data:", error)
-    //         })
-    // }, [])
-    //-------------------------------fin a décommenter pour utiliser l'API
-
+const RadarChartComponent = ({ performance }) => {
     return (
         <ResponsiveContainer width="100%" aspect={1}>
             <RadarChart
@@ -73,12 +18,7 @@ const RadarChartComponent = () => {
                     backgroundColor: "#282D30",
                     borderRadius: "5px",
                 }}
-                //datas mockées-----------------------------------------------
-                data={performanceData}
-                //--------------------------------------------fin datas mockées
-                //datas api---------------------------------------------------
-                // data={data}
-                //------------------------------------------------fin datas api
+                data={performance}
                 outerRadius={"95%"}
             >
                 <PolarGrid radialLines={false} />

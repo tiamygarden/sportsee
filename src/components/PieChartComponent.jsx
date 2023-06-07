@@ -1,11 +1,4 @@
 import React from "react"
-//a commenter pour utiliser l'API------------------------------------
-import { USER_MAIN_DATA } from "../data/dataMocked"
-//-------------------------------fin a commenter pour utiliser l'API
-//a décommenter pour utiliser l'API------------------------------------
-// import { getUser } from "../services/api"
-// import { useEffect, useState } from "react"
-//------------------------------------fin a décommenter pour utiliser l'API
 import {
     ResponsiveContainer,
     RadialBarChart,
@@ -13,42 +6,13 @@ import {
     RadialBar,
 } from "recharts"
 
-const PieChartComponent = () => {
-    //datas mockées----------------------
-    const todayScoreFormated = USER_MAIN_DATA
-        ? USER_MAIN_DATA[0].todayScore * 100
-        : 0
-    //------------------------------------fin datas mockées
-
-    //a décommenter pour utiliser l'API------------------------------------
-    // const [data, setData] = useState(null)
-    //
-    // useEffect(() => {
-    //     getUser(12)
-    //         .then((res) => {
-    //             setData(res.data)
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error fetching data:", error)
-    //         })
-    // }, [])
-    // if (!data) {
-    //     return null // Si les données n'ont pas encore été récupérées, on affiche null (ou un indicateur de chargement par exemple)
-    // }
-    // const todayScoreFormated = data.todayScore * 100
-    //------------------------------------fin a décommenter pour utiliser l'API
-
+const PieChartComponent = ({ user }) => {
     return (
         <ResponsiveContainer width="100%" aspect={1}>
             <RadialBarChart
                 width="100%"
                 height="100%"
-                //data mockée-------------------------------------------------
-                data={[{ value: todayScoreFormated, fill: "#E60000" }]}
-                //----------------------------------------------fin data mockée
-                //a décommenter pour utiliser l'API---------------------------
-                // data={[{ value: todayScoreFormated, fill: "#E60000" }]}
-                //------------------------fin a décommenter pour utiliser l'API
+                data={[{ value: user.score, fill: "#E60000" }]}
                 innerRadius={160}
                 barSize={10}
                 startAngle={90}
@@ -58,12 +22,7 @@ const PieChartComponent = () => {
             >
                 <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                 <RadialBar
-                    //data mockée----------------------
-                    dataKey={todayScoreFormated}
-                    //------------------------------------fin data mockée
-                    //data de l'api----------------------
-                    // dataKey={todayScoreFormated}
-                    //------------------------------------fin data de l'api
+                    dataKey={user.score}
                     cornerRadius={5}
                     fill={"#E60000"}
                     background={{ fill: "#FBFBFB" }}
@@ -82,14 +41,7 @@ const PieChartComponent = () => {
                     fontSize="26"
                     fontWeight="700"
                     fill="black"
-                >
-                    {/*data mockée-------------------------------------------*/}
-                    {todayScoreFormated}%
-                    {/*//------------------------------------fin data mockée*/}
-                    {/*a décommenter pour utiliser l'API---------------------*/}
-                    {/*{todayScoreFormated}%*/}
-                    {/*-----------------fin a décommenter pour utiliser l'API*/}
-                </text>
+                ></text>
                 <text
                     x="50%"
                     y="55%"
