@@ -5,7 +5,7 @@ import {
     getActivitiesForUserId,
     getAverageSessionsForUserId,
     getPerformanceForUserId,
-    setUserById,
+    getMainDataForUserId,
 } from "../../services/UserService"
 import LinearChartComponent from "../LinearChartComponent"
 import BarChartComponent from "../BarChartComponent"
@@ -19,7 +19,7 @@ const Profile = () => {
     const [user, setUser] = useState({})
     useEffect(() => {
         ;(async () => {
-            const data = await setUserById(userId)
+            const data = await getMainDataForUserId(userId)
             setUser(data)
         })()
     }, [userId])

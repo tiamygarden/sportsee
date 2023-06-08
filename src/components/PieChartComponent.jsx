@@ -12,7 +12,7 @@ const PieChartComponent = ({ user }) => {
             <RadialBarChart
                 width="100%"
                 height="100%"
-                data={[{ value: user.score, fill: "#E60000" }]}
+                data={[{ value: user.score * 100, fill: "#E60000" }]}
                 innerRadius={160}
                 barSize={10}
                 startAngle={90}
@@ -42,7 +42,7 @@ const PieChartComponent = ({ user }) => {
                     fontWeight="700"
                     fill="black"
                 >
-                    {user.score}%
+                    {user.score * 100}%
                 </text>
                 <text
                     x="50%"

@@ -2,7 +2,7 @@ const USER_MAIN_DATA = [
     {
         id: 12,
         userInfos: {
-            firstName: "Karl",
+            firstName: "Karlito",
             lastName: "Dovineau",
             age: 31,
         },

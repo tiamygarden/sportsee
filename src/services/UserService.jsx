@@ -1,9 +1,9 @@
 import api from "./api"
 
-export async function setUserById(id) {
+export async function getMainDataForUserId(id) {
     const { data } = await api(`user/${id}`)
 
-    data.score = (data.todayScore ? data.todayScore : data.score) * 100
+    data.score = data.todayScore ? data.todayScore : data.score
 
     return data
 }
