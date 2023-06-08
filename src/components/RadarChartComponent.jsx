@@ -8,6 +8,22 @@ import {
 } from "recharts"
 
 const RadarChartComponent = ({ performance }) => {
+    const dataKeys = {
+        1: "Cardio",
+        2: "Energie",
+        3: "Endurance",
+        4: "Force",
+        5: "Vitesse",
+        6: "Intensité",
+    }
+
+    performance = performance.map((item) => {
+        return {
+            kind: dataKeys[item.kind],
+            value: item.value,
+        }
+    })
+
     return (
         <ResponsiveContainer width="100%" aspect={1}>
             <RadarChart

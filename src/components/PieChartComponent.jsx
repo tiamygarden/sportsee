@@ -16,13 +16,13 @@ const PieChartComponent = ({ user }) => {
                 innerRadius={160}
                 barSize={10}
                 startAngle={90}
-                endAngle={450}
+                endAngle={-250}
                 fill={"#E60000"}
                 style={{ backgroundColor: "#FBFBFB", borderRadius: "5px" }}
             >
                 <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                 <RadialBar
-                    dataKey={user.score}
+                    dataKey="value"
                     cornerRadius={5}
                     fill={"#E60000"}
                     background={{ fill: "#FBFBFB" }}
@@ -41,7 +41,9 @@ const PieChartComponent = ({ user }) => {
                     fontSize="26"
                     fontWeight="700"
                     fill="black"
-                ></text>
+                >
+                    {user.score}%
+                </text>
                 <text
                     x="50%"
                     y="55%"

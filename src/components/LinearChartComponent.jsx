@@ -21,6 +21,27 @@ function LinearChartComponent({ avgSessions }) {
         }
         return null
     }
+    function Day(day) {
+        switch (day) {
+            case 1:
+                return "L"
+            case 2:
+                return "M"
+            case 3:
+                return "M"
+            case 4:
+                return "J"
+            case 5:
+                return "V"
+            case 6:
+                return "S"
+            case 7:
+                return "D"
+
+            default:
+                return null
+        }
+    }
 
     return (
         <ResponsiveContainer width="100%" height="100%" aspect={1}>
@@ -35,8 +56,8 @@ function LinearChartComponent({ avgSessions }) {
                 fontSize={10}
                 margin={{
                     top: 15,
-                    right: 5,
-                    left: 5,
+                    right: 10,
+                    left: 10,
                     bottom: 5,
                 }}
             >
@@ -46,9 +67,14 @@ function LinearChartComponent({ avgSessions }) {
                     horizontal={false}
                 />
                 <CartesianAxis axisLine={false} />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} />
+                <XAxis
+                    dataKey="day"
+                    tickFormatter={Day}
+                    axisLine={false}
+                    tickLine={false}
+                />
                 <YAxis axisLine={false} tickLine={false} hide={true} />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip />} cursor={false} />
                 <Line
                     type="monotone"
                     dataKey="sessionLength"

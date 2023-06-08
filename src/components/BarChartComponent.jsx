@@ -100,6 +100,7 @@ const BarChartComponent = ({ activities }) => {
                     </text>
                     <Bar
                         yAxisId="kilogram"
+                        name={"Poids (kg)"}
                         dataKey="kilogram"
                         fill="#282D30"
                         barSize={7}
@@ -107,6 +108,7 @@ const BarChartComponent = ({ activities }) => {
                     />
                     <Bar
                         yAxisId="calories"
+                        name={"Calories brûlées (kCal)"}
                         dataKey="calories"
                         fill="#E60000"
                         barSize={7}
