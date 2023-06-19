@@ -1,3 +1,5 @@
+import React from "react"
+import PropTypes from "prop-types"
 import {
     RadarChart,
     PolarGrid,
@@ -8,18 +10,28 @@ import {
 } from "recharts"
 
 const RadarChartComponent = ({ performance }) => {
-    const dataKeys = {
-        1: "Cardio",
-        2: "Energie",
-        3: "Endurance",
-        4: "Force",
-        5: "Vitesse",
-        6: "Intensité",
+    const convertKindToString = (kind) => {
+        switch (kind) {
+            case 1:
+                return "Cardio"
+            case 2:
+                return "Energie"
+            case 3:
+                return "Endurance"
+            case 4:
+                return "Force"
+            case 5:
+                return "Vitesse"
+            case 6:
+                return "Intensité"
+            default:
+                return ""
+        }
     }
 
     performance = performance.map((item) => {
         return {
-            kind: dataKeys[item.kind],
+            kind: convertKindToString(item.kind),
             value: item.value,
         }
     })
@@ -52,6 +64,15 @@ const RadarChartComponent = ({ performance }) => {
             </RadarChart>
         </ResponsiveContainer>
     )
+}
+
+RadarChartComponent.propTypes = {
+    performance: PropTypes.arrayOf(
+        PropTypes.shape({
+            kind: PropTypes.number.isRequired,
+            value: PropTypes.number,
+        })
+    ),
 }
 
 export default RadarChartComponent

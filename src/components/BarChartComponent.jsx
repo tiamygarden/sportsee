@@ -10,6 +10,7 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts"
+import PropTypes from "prop-types"
 
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -118,6 +119,16 @@ const BarChartComponent = ({ activities }) => {
             </ResponsiveContainer>
         </div>
     )
+}
+
+BarChartComponent.propTypes = {
+    activities: PropTypes.arrayOf(
+        PropTypes.shape({
+            day: PropTypes.string,
+            kilogram: PropTypes.number,
+            calories: PropTypes.number,
+        })
+    ).isRequired,
 }
 
 export default BarChartComponent

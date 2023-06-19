@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import calIcon from "../assets/calories-icon.png"
 import proteinIcon from "../assets/protein-icon.png"
@@ -37,6 +38,17 @@ const NutriCards = ({ user }) => {
                 ))}
         </>
     )
+}
+
+NutriCards.propTypes = {
+    user: PropTypes.shape({
+        keyData: PropTypes.shape({
+            calorieCount: PropTypes.number,
+            proteinCount: PropTypes.number,
+            carbohydrateCount: PropTypes.number,
+            fatCount: PropTypes.number,
+        }),
+    }),
 }
 
 export default NutriCards

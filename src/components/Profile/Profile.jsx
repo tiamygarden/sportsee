@@ -17,41 +17,47 @@ const Profile = () => {
     const { userId } = useParams()
 
     const [user, setUser] = useState({})
-    useEffect(() => {
-        ;(async () => {
-            const data = await getMainDataForUserId(userId)
-            setUser(data)
-        })()
-    }, [userId])
-
     const [activities, setActivities] = useState([])
-    useEffect(() => {
-        ;(async () => {
-            const data = await getActivitiesForUserId(userId)
-            setActivities(data)
-        })()
-    }, [userId])
-
     const [avgSessions, setAvgSessions] = useState([])
-    useEffect(() => {
-        ;(async () => {
-            const data = await getAverageSessionsForUserId(userId)
-            setAvgSessions(data)
-        })()
-    }, [userId])
-
     const [performance, setPerformance] = useState([])
+    const [caloriesConsumedMessage, setCaloriesConsumedMessage] = useState("")
+
     useEffect(() => {
         ;(async () => {
-            const data = await getPerformanceForUserId(userId)
-            setPerformance(data)
+            const mainData = await getMainDataForUserId(userId)
+            setUser(mainData)
+
+            const activityData = await getActivitiesForUserId(userId)
+            setActivities(activityData)
+
+            const avgSessionsData = await getAverageSessionsForUserId(userId)
+            setAvgSessions(avgSessionsData)
+
+            const performanceData = await getPerformanceForUserId(userId)
+            setPerformance(performanceData)
+
+            const yesterdaySession = activityData[activityData.length - 1]
+
+            if (yesterdaySession && yesterdaySession.calories >= 300) {
+                setCaloriesConsumedMessage(
+                    "Félicitation ! Vous avez atteint votre objectif hier 👏"
+                )
+            } else {
+                setCaloriesConsumedMessage(
+                    "Courage, hier vous y étiez presque."
+                )
+            }
         })()
     }, [userId])
 
     return (
         <>
             <div className="main__container">
-                <UserGreeting user={user} />
+                <UserGreeting
+                    user={user}
+                    caloriesConsumedMessage={caloriesConsumedMessage}
+                />
+
                 <div className="main__container-left">
                     <BarChartComponent activities={activities} />
                     <div className={"performance__container"}>

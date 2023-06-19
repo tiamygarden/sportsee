@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import {
     ResponsiveContainer,
     RadialBarChart,
@@ -60,6 +61,12 @@ const PieChartComponent = ({ user }) => {
             </RadialBarChart>
         </ResponsiveContainer>
     )
+}
+
+PieChartComponent.propTypes = {
+    user: PropTypes.shape({
+        score: PropTypes.number,
+    }),
 }
 
 export default PieChartComponent
