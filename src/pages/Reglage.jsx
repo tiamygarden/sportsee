@@ -9,7 +9,7 @@ const Reglage = () => {
             <Sidebar />
 
             <div className="main__container">
-                <h1 className="title is-1">This is the Réglages Page</h1>
+                <h1 className="title is-1">Réglages</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Cras gravida, risus at dapibus aliquet, elit quam

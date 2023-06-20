@@ -8,7 +8,7 @@ const Error404 = () => {
             <NavBar />
             <Sidebar />
             <div className="main__container">
-                <h1>Erreur 404</h1>
+                <h1 className="title is-1">Erreur 404</h1>
             </div>
         </>
     )
