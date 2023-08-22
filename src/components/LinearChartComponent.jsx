@@ -46,10 +46,8 @@ function LinearChartComponent({ avgSessions }) {
     // }
     let functionDay = new ModelisationClass()
     return (
-        <ResponsiveContainer width="100%" height="100%" aspect={1}>
+        <ResponsiveContainer width="100%" height="100%">
             <LineChart
-                width="100%"
-                height="100%"
                 style={{
                     backgroundColor: "#ff0000",
                     borderRadius: "5px",

@@ -15,18 +15,24 @@ const Home = () => {
                 <div className="full-height">
                     <div className="avatars__container">
                         <Link to="/profil/user/18">
-                            <img
-                                className="avatar"
-                                src={imgFemme}
-                                alt="icone femme"
-                            />
+                            <div className="center">
+                                <img
+                                    className="avatar"
+                                    src={imgFemme}
+                                    alt="icone femme"
+                                />
+                                <p>Cecilia</p>
+                            </div>
                         </Link>
                         <Link to="/profil/user/12">
-                            <img
-                                className="avatar"
-                                src={imgHomme}
-                                alt="icone homme"
-                            />
+                            <div className="center">
+                                <img
+                                    className="avatar"
+                                    src={imgHomme}
+                                    alt="icone homme"
+                                />
+                                <p>Karl</p>
+                            </div>
                         </Link>
                     </div>
                 </div>

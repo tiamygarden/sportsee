@@ -37,10 +37,8 @@ const RadarChartComponent = ({ performance }) => {
     })
 
     return (
-        <ResponsiveContainer width="100%" aspect={1}>
+        <ResponsiveContainer width="100%" height="100%">
             <RadarChart
-                width="100%"
-                height="100%"
                 margin={{ top: 15, right: 30, bottom: 15, left: 30 }}
                 style={{
                     backgroundColor: "#282D30",

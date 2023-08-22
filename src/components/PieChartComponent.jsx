@@ -9,22 +9,20 @@ import {
 
 const PieChartComponent = ({ user }) => {
     return (
-        <ResponsiveContainer width="100%" aspect={1}>
+        <ResponsiveContainer width="100%" height="100%">
             <RadialBarChart
-                width="100%"
-                height="100%"
                 data={[{ value: user.score * 100, fill: "#E60000" }]}
                 innerRadius={160}
-                barSize={10}
+                barSize={12}
                 startAngle={90}
                 endAngle={-250}
                 fill={"#E60000"}
-                style={{ backgroundColor: "#FBFBFB", borderRadius: "5px" }}
+                style={{ backgroundColor: "#FBFBFB", borderRadius: "10px" }}
             >
                 <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                 <RadialBar
                     dataKey="value"
-                    cornerRadius={5}
+                    cornerRadius={20}
                     fill={"#E60000"}
                     background={{ fill: "#FBFBFB" }}
                 />
@@ -32,7 +30,7 @@ const PieChartComponent = ({ user }) => {
                     cx="50%"
                     cy="50%"
                     fill="white"
-                    r="35%"
+                    r="30%"
                     className="circle"
                 ></circle>
                 <text
@@ -55,7 +53,13 @@ const PieChartComponent = ({ user }) => {
                 >
                     de votre objectif
                 </text>
-                <text x="10%" y="15%" fill="black" fontSize="14px">
+                <text
+                    x="10%"
+                    y="15%"
+                    fill="black"
+                    fontSize="14px"
+                    fontWeight={"bold"}
+                >
                     Score
                 </text>
             </RadialBarChart>

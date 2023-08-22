@@ -28,10 +28,8 @@ const CustomTooltip = ({ active, payload }) => {
 const BarChartComponent = ({ activities }) => {
     return (
         <div className={"activity"}>
-            <ResponsiveContainer width="100%" aspect={3}>
+            <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                    width="100%"
-                    height="100%"
                     data={activities}
                     fontSize={10}
                     barSize={10}
@@ -54,7 +52,9 @@ const BarChartComponent = ({ activities }) => {
                         axisLine={{ stroke: "#DEDEDE" }}
                         tickLine={false}
                         height={48}
-                        tickFormatter={(value) => new Date(value).getDate()}
+                        tickFormatter={(value) =>
+                            new Date(value).getDate().toString()
+                        }
                         tickMargin={15}
                     />
                     <YAxis
@@ -90,8 +90,8 @@ const BarChartComponent = ({ activities }) => {
                         }}
                     />
                     <text
-                        x="3%"
-                        y="17px"
+                        x={3}
+                        y={17}
                         dominantBaseline="left"
                         fontSize="1.5em"
                         fontWeight="bold"

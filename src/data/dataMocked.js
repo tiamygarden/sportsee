@@ -36,6 +36,21 @@ const USER_ACTIVITY = [
         userId: 12,
         sessions: [
             {
+                day: "2020-06-27",
+                kilogram: 80,
+                calories: 230,
+            },
+            {
+                day: "2020-06-28",
+                kilogram: 80,
+                calories: 210,
+            },
+            {
+                day: "2020-06-29",
+                kilogram: 80,
+                calories: 220,
+            },
+            {
                 day: "2020-07-01",
                 kilogram: 80,
                 calories: 240,

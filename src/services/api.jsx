@@ -6,7 +6,7 @@ import {
 } from "./UserMockDataConverter"
 
 const API_BASE_URL = "http://localhost:4200"
-const USE_MOCK = false
+const USE_MOCK = true
 
 const mockResolver = new Map()
 mockResolver.set("USER_MAIN_DATA", "user/([0-9]+)")
