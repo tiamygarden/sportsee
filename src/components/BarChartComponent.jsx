@@ -1,4 +1,5 @@
 import React from "react"
+// import ChartWrapper from "./ChartWrapper"
 import {
     BarChart,
     Bar,
@@ -27,9 +28,12 @@ const CustomTooltip = ({ active, payload }) => {
 
 const BarChartComponent = ({ activities }) => {
     return (
+        // <ChartWrapper>
         <div className={"activity"}>
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
+                    width="100%"
+                    height="100%"
                     data={activities}
                     fontSize={10}
                     barSize={10}
@@ -66,7 +70,7 @@ const BarChartComponent = ({ activities }) => {
                         axisLine={false}
                         orientation="right"
                         tickLine={false}
-                        tick={{ fontSize: 14 }}
+                        tick={{ fontSize: "14px" }}
                         dx={15}
                     />
                     <YAxis
@@ -118,6 +122,7 @@ const BarChartComponent = ({ activities }) => {
                 </BarChart>
             </ResponsiveContainer>
         </div>
+        // </ChartWrapper>
     )
 }
 

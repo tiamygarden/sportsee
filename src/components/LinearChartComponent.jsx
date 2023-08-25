@@ -10,6 +10,7 @@ import {
     ResponsiveContainer,
 } from "recharts"
 import ModelisationClass from "../model/ModelisationClass"
+// import ChartWrapper from "./ChartWrapper"
 
 function LinearChartComponent({ avgSessions }) {
     const CustomTooltip = ({ active, payload }) => {
@@ -17,7 +18,7 @@ function LinearChartComponent({ avgSessions }) {
             const session = payload[0].payload
             return (
                 <div className="custom-tooltip-sessions">
-                    <p className="session-label">{`${session.sessionLength}min`}</p>
+                    <p>{`${session.sessionLength}min`}</p>
                 </div>
             )
         }
@@ -69,7 +70,6 @@ function LinearChartComponent({ avgSessions }) {
                 <CartesianAxis axisLine={false} />
                 <XAxis
                     dataKey="day"
-                    // tickFormatter={Day}
                     tickFormatter={functionDay.Day}
                     axisLine={false}
                     tickLine={false}
@@ -83,7 +83,7 @@ function LinearChartComponent({ avgSessions }) {
                     activeDot={{ r: 8 }}
                 />
                 <text
-                    x="5%"
+                    x={5}
                     y={17}
                     width={147}
                     dominantBaseline="left"

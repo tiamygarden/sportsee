@@ -17,7 +17,7 @@ const USER_MAIN_DATA = [
     {
         id: 18,
         userInfos: {
-            firstName: "Cecilia",
+            firstName: "Cecilita",
             lastName: "Ratorez",
             age: 34,
         },
@@ -37,22 +37,22 @@ const USER_ACTIVITY = [
         sessions: [
             {
                 day: "2020-06-27",
-                kilogram: 80,
+                kilogram: 75,
                 calories: 230,
             },
             {
                 day: "2020-06-28",
-                kilogram: 80,
+                kilogram: 76,
                 calories: 210,
             },
             {
                 day: "2020-06-29",
-                kilogram: 80,
+                kilogram: 77,
                 calories: 220,
             },
             {
                 day: "2020-07-01",
-                kilogram: 80,
+                kilogram: 78,
                 calories: 240,
             },
             {

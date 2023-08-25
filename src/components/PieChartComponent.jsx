@@ -6,23 +6,25 @@ import {
     PolarAngleAxis,
     RadialBar,
 } from "recharts"
+// import ChartWrapper from "./ChartWrapper"
 
 const PieChartComponent = ({ user }) => {
     return (
+        // <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
             <RadialBarChart
                 data={[{ value: user.score * 100, fill: "#E60000" }]}
-                innerRadius={160}
-                barSize={12}
+                innerRadius={78}
+                barSize={10}
                 startAngle={90}
-                endAngle={-250}
+                endAngle={-359}
                 fill={"#E60000"}
                 style={{ backgroundColor: "#FBFBFB", borderRadius: "10px" }}
             >
                 <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                 <RadialBar
                     dataKey="value"
-                    cornerRadius={20}
+                    cornerRadius={51}
                     fill={"#E60000"}
                     background={{ fill: "#FBFBFB" }}
                 />
@@ -30,14 +32,14 @@ const PieChartComponent = ({ user }) => {
                     cx="50%"
                     cy="50%"
                     fill="white"
-                    r="30%"
+                    r="72px"
                     className="circle"
                 ></circle>
                 <text
                     x="50%"
                     y="45%"
                     textAnchor="middle"
-                    fontSize="26"
+                    fontSize="26px"
                     fontWeight="700"
                     fill="black"
                 >
@@ -47,7 +49,7 @@ const PieChartComponent = ({ user }) => {
                     x="50%"
                     y="55%"
                     textAnchor="middle"
-                    fontSize="14"
+                    fontSize="14px"
                     fill="#74798C"
                     fontWeight="500"
                 >
@@ -64,6 +66,7 @@ const PieChartComponent = ({ user }) => {
                 </text>
             </RadialBarChart>
         </ResponsiveContainer>
+        // </ChartWrapper>
     )
 }
 
