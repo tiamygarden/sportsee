@@ -8,7 +8,6 @@ import {
     Radar,
     ResponsiveContainer,
 } from "recharts"
-// import ChartWrapper from "./ChartWrapper"
 
 const RadarChartComponent = ({ performance }) => {
     const convertKindToString = (kind) => {
@@ -38,7 +37,6 @@ const RadarChartComponent = ({ performance }) => {
     })
 
     return (
-        // <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
             <RadarChart
                 style={{
@@ -61,7 +59,6 @@ const RadarChartComponent = ({ performance }) => {
                 <Radar dataKey="value" fill="#FF0101B2" fillOpacity={0.9} />
             </RadarChart>
         </ResponsiveContainer>
-        // </ChartWrapper>
     )
 }
 

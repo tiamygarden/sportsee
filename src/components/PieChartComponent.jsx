@@ -6,11 +6,9 @@ import {
     PolarAngleAxis,
     RadialBar,
 } from "recharts"
-// import ChartWrapper from "./ChartWrapper"
 
 const PieChartComponent = ({ user }) => {
     return (
-        // <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
             <RadialBarChart
                 data={[{ value: user.score * 100, fill: "#E60000" }]}
@@ -66,7 +64,6 @@ const PieChartComponent = ({ user }) => {
                 </text>
             </RadialBarChart>
         </ResponsiveContainer>
-        // </ChartWrapper>
     )
 }
 

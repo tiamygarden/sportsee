@@ -10,7 +10,6 @@ import {
     ResponsiveContainer,
 } from "recharts"
 import ModelisationClass from "../model/ModelisationClass"
-// import ChartWrapper from "./ChartWrapper"
 
 function LinearChartComponent({ avgSessions }) {
     const CustomTooltip = ({ active, payload }) => {
@@ -24,27 +23,7 @@ function LinearChartComponent({ avgSessions }) {
         }
         return null
     }
-    // function Day(day) {
-    //     switch (day) {
-    //         case 1:
-    //             return "L"
-    //         case 2:
-    //             return "M"
-    //         case 3:
-    //             return "M"
-    //         case 4:
-    //             return "J"
-    //         case 5:
-    //             return "V"
-    //         case 6:
-    //             return "S"
-    //         case 7:
-    //             return "D"
-    //
-    //         default:
-    //             return null
-    //     }
-    // }
+
     let functionDay = new ModelisationClass()
     return (
         <ResponsiveContainer width="100%" height="100%">
@@ -62,26 +41,51 @@ function LinearChartComponent({ avgSessions }) {
                     bottom: 5,
                 }}
             >
+                <defs>
+                    <linearGradient
+                        id="sessionGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                    >
+                        <stop
+                            offset="0%"
+                            stopColor={"#FFFFFFa6"}
+                            stopOpacity={0.6}
+                        />
+                        <stop
+                            offset="100%"
+                            stopColor={"#FFFFFF"}
+                            stopOpacity={1}
+                        />
+                    </linearGradient>
+                </defs>
                 <CartesianGrid
-                    strokeDasharray="3 3"
                     vertical={false}
                     horizontal={false}
+                    strokeDasharray="3 3"
+                    axisLine={true}
                 />
-                <CartesianAxis axisLine={false} />
                 <XAxis
                     dataKey="day"
                     tickFormatter={functionDay.Day}
                     axisLine={false}
                     tickLine={false}
+                    tick={{ fill: "#FFFFFFa6", fontSize: 10 }}
                 />
                 <YAxis axisLine={false} tickLine={false} hide={true} />
                 <Tooltip content={<CustomTooltip />} cursor={false} />
                 <Line
                     type="monotone"
                     dataKey="sessionLength"
-                    stroke={"#FFFFFFa6"}
-                    activeDot={{ r: 8 }}
+                    stroke="url(#sessionGradient)"
+                    strokeWidth={3}
+                    circle
+                    r={0}
+                    fill={"#FFFFFF"}
                 />
+
                 <text
                     x={5}
                     y={17}
@@ -90,7 +94,7 @@ function LinearChartComponent({ avgSessions }) {
                     textAnchor="top"
                     fontSize="15px"
                     fontWeight="bold"
-                    fill="#FFFFFF"
+                    fill={"#FFFFFF"}
                     opacity={0.5}
                 >
                     Durée moyenne des sessions
