@@ -8,58 +8,67 @@ import {
 } from "recharts"
 
 const PieChartComponent = ({ user }) => {
+    const scoreKey = user.todayScore !== undefined ? "todayScore" : "score"
+
+    const scoreValue = user[scoreKey] * 100
+
     return (
         <ResponsiveContainer width="100%" height="100%">
             <RadialBarChart
-                data={[{ value: user.score * 100, fill: "#E60000" }]}
+                cx="50%"
+                cy="50%"
+                data={[{ value: scoreValue }]}
                 innerRadius={78}
+                outerRadius="80%"
                 barSize={10}
                 startAngle={90}
                 endAngle={-359}
                 fill={"#E60000"}
-                style={{ backgroundColor: "#FBFBFB", borderRadius: "10px" }}
+                style={{ backgroundColor: "#FBFBFB", borderRadius: "10" }}
             >
-                <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
+                <PolarAngleAxis
+                    cx={0}
+                    cy={0}
+                    domain={[0, 100]}
+                    type="number"
+                    tick={false}
+                />
                 <RadialBar
+                    minAngle={15}
+                    // background={{ fill: "#FBFBFB" }}
+                    clockWise
                     dataKey="value"
                     cornerRadius={51}
                     fill={"#E60000"}
-                    background={{ fill: "#FBFBFB" }}
                 />
                 <circle
                     cx="50%"
                     cy="50%"
                     fill="white"
-                    r="72px"
+                    r="72"
                     className="circle"
                 ></circle>
                 <text
                     x="50%"
                     y="45%"
                     textAnchor="middle"
-                    fontSize="26px"
-                    fontWeight="700"
+                    fontSize={26}
+                    fontWeight={700}
                     fill="black"
                 >
-                    {user.score * 100}%
+                    {scoreValue}%
                 </text>
                 <text
                     x="50%"
                     y="55%"
                     textAnchor="middle"
-                    fontSize="14px"
+                    fontSize={14}
                     fill="#74798C"
-                    fontWeight="500"
+                    fontWeight={500}
                 >
                     de votre objectif
                 </text>
-                <text
-                    x="10%"
-                    y="15%"
-                    fill="black"
-                    fontSize="14px"
-                    fontWeight={"bold"}
-                >
+                <text x={14} y={20} fill="black" fontSize={14} fontWeight={800}>
                     Score
                 </text>
             </RadialBarChart>

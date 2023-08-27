@@ -31,8 +31,6 @@ const BarChartComponent = ({ activities }) => {
         <div className={"activity"}>
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                    width="100%"
-                    height="100%"
                     data={activities}
                     fontSize={10}
                     barSize={10}

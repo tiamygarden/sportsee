@@ -4,61 +4,23 @@
     height: 230px;
     flex-direction: row;
     justify-content: space-between;
-
-    @media screen {
-        @media (max-width: 1024px) {
-            width: 100%;
-            margin-top: 20px;
-        }
-    }
 }
 
 .session {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
-
-    @media screen {
-        @media (max-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-
-        @media (min-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-    }
+    width: 30%;
+    height: 230px;
 }
 
 .polar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
-
-    @media screen {
-        @media (max-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-
-        @media (min-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-    }
+    width: 30%;
+    height: 230px;
 }
 
 .score {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0212249);
-
-    @media screen {
-        @media (max-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-
-        @media (min-width: 1024px) {
-            width: 30%;
-            height: 230px;
-        }
-    }
+    width: 30%;
 }
 
 .custom-tooltip-sessions {

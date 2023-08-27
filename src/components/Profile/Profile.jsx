@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import UserGreeting from "./UserGreeting"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import {
     getActivitiesForUserId,
     getAverageSessionsForUserId,
@@ -16,6 +16,9 @@ import NutriCards from "../NutriCards"
 const Profile = () => {
     const { userId } = useParams()
 
+    const [userDataLoaded, setUserDataLoaded] = useState(false)
+    const navigate = useNavigate()
+
     const [user, setUser] = useState({})
     const [activities, setActivities] = useState([])
     const [avgSessions, setAvgSessions] = useState([])
@@ -26,6 +29,13 @@ const Profile = () => {
         ;(async () => {
             const mainData = await getMainDataForUserId(userId)
             setUser(mainData)
+
+            if (!mainData) {
+                navigate("../../pages/Error404.jsx")
+                return
+            }
+
+            setUserDataLoaded(true)
 
             const activityData = await getActivitiesForUserId(userId)
             setActivities(activityData)
@@ -48,8 +58,11 @@ const Profile = () => {
                 )
             }
         })()
-    }, [userId])
+    }, [userId, navigate])
 
+    if (!userDataLoaded) {
+        return <div>Loading...</div>
+    }
     return (
         <>
             <div className="main__container">

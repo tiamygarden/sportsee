@@ -23,11 +23,6 @@
             width: 100%;
             align-items: center;
         }
-
-        //@media (min-width: 1476px) {
-        //    width: 80%;
-        //height: 80%;
-        //}
     }
 
     h3 {
@@ -56,16 +51,9 @@
             padding-bottom: 15px;
         }
         @media screen {
-            @media (max-width: 1024px) {
-                width: 100%;
-            }
-
             @media (min-width: 1024px) {
                 margin-bottom: 15px;
             }
-            //@media (min-width: 1440px) {
-            //    margin-bottom: 10px;
-            //}
         }
     }
 
@@ -105,12 +93,6 @@
                 gap: 5px;
             }
         }
-
-        //@media screen {
-        //    @media (min-width: 1440px) {
-        //        width: 25%;
-        //    }
-        //}
     }
 
     &-btm {
@@ -166,11 +148,6 @@
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-    @media screen {
-        @media (min-width: 1024px) {
-            margin-top: 20px;
-        }
-    }
 }
 .avatar {
     width: 150px;
